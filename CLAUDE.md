@@ -41,6 +41,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Nom : **T-Two.** (avec majuscule T et le point final). Slogan : **« La Zone de transition »** / « The Transition Zone ».
 - Direction : journal personnel / magazine / documentaire, mais clair et précis. Couverture de magazine, numéros de page, légendes en italique.
 - Fond **blanc cassé crème** (`--paper`), beaucoup d'espace. Touches de **charcoal** (`--ink`) et de dégradés « cliché de soleil » (`--dawn`, `--noon`, `--dusk`, `--night`, `--storm`).
+- **Rythme crème / charcoal** (oct. 2026, équilibre entre Noah qui aime le crème et Luka qui aime le sombre) : le **sens** en charcoal (`class="dark"` : Éditorial, L'expérience, Notre histoire, pied de page), le **concret** en crème (couverture, Saison, Season Pass avec billet charcoal, Billetterie, Partenaires, FAQ). La classe `.dark` redéfinit les jetons de couleur localement : utilise toujours les variables, jamais de couleur codée en dur. Charcoal = `--charcoal` (#26282C), ni noir ni gris.
 - Le **jaune** (`--flare`) seulement en petit éclat, au bon endroit. Le **corail** (`--coral`) pour les actions principales.
 - Couleurs fixes : **pas de mode sombre**.
 - Polices : Archivo (titres et texte), Newsreader italique (accents éditoriaux), IBM Plex Mono (étiquettes).

@@ -34,6 +34,7 @@
   --violet:#6E4FD6;
   --plum:#2B1E3A;
   --flare:#F3DC45;      /* éclat, à petites doses */
+  --charcoal:#26282C;   /* fond des sections « sens » */
   --on-dark:#F2EFE9;
   --on-dark-muted:rgba(242,239,233,.66);
   --f-display:"Archivo","Helvetica Neue","Arial Black",system-ui,sans-serif;
@@ -229,6 +230,12 @@ section{padding-block:clamp(80px,11vw,140px);position:relative}
 
 /* expérience */
 .exp{background:var(--paper-2)}
+/* Rythme : le « sens » (éditorial, expérience, histoire) en charcoal, le concret en crème */
+.dark{--paper:#26282C;--paper-2:#26282C;--card:#2F3136;--ink:#F2EFE9;--muted:rgba(242,239,233,.68);--rule:rgba(242,239,233,.16);background:var(--charcoal);color:var(--ink);isolation:isolate;overflow:hidden}
+.dark > .grain{opacity:.08;z-index:-1}
+.dark .glow-soft{position:absolute;width:55%;aspect-ratio:1;max-width:100%;border-radius:50%;filter:blur(60px);opacity:.28;z-index:-1;pointer-events:none}
+.dark .pull .mono,.dark .timeline .when{color:var(--muted)}
+.dark .pillar .sw{box-shadow:0 0 0 1px var(--rule)}
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px)}
 @media (max-width:820px){.pillars{grid-template-columns:1fr}}
 .pillar{display:grid;gap:14px;align-content:start}
@@ -245,18 +252,18 @@ section{padding-block:clamp(80px,11vw,140px);position:relative}
 .chip{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--card)}
 
 /* pass */
-.pass{background:var(--ink);color:var(--on-dark);overflow:hidden;isolation:isolate}
-.pass .glow{position:absolute;right:-10%;top:-25%;width:60%;aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--night);filter:blur(40px);opacity:.75;z-index:-1}
+.pass{background:var(--paper-2);color:var(--ink);overflow:hidden;isolation:isolate}
+.pass .glow{position:absolute;right:-10%;top:-25%;width:60%;aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--dusk);filter:blur(70px);opacity:.22;z-index:-1}
 .pass-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
 @media (max-width:860px){.pass-grid{grid-template-columns:1fr}}
-.pass .kicker,.pass .dek{color:var(--on-dark-muted)}
-.ticket{background:var(--paper);color:var(--ink);border-radius:var(--r);display:grid;overflow:hidden}
+.pass .kicker,.pass .dek{color:var(--muted)}
+.ticket{background:var(--charcoal);color:var(--on-dark);box-shadow:0 24px 50px -28px rgba(38,40,44,.6);border-radius:var(--r);display:grid;overflow:hidden}
 .ticket .tt{padding:24px 26px;display:grid;gap:12px}
-.ticket .tear{height:0;border-top:2px dashed var(--rule);margin-inline:18px;position:relative}
-.ticket .tear::before,.ticket .tear::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--ink)}
+.ticket .tear{height:0;border-top:2px dashed rgba(242,239,233,.22);margin-inline:18px;position:relative}
+.ticket .tear::before,.ticket .tear::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--paper-2)}
 .ticket .tear::before{left:-30px}.ticket .tear::after{right:-30px}
-.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:var(--muted)}
-.ticket .amt{font-family:var(--f-display);font-weight:900;font-size:64px;letter-spacing:-.05em;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
+.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:var(--on-dark-muted)}
+.ticket .amt{font-family:var(--f-display);font-weight:900;font-size:64px;letter-spacing:-.05em;color:var(--on-dark);font-variant-numeric:tabular-nums;line-height:1}
 .ticket ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
 .ticket li{display:flex;gap:10px;font-size:15.5px}
 .ticket li::before{content:"→";color:var(--coral);font-family:var(--f-mono)}
@@ -547,7 +554,8 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
     </div>
   </section>
 
-  <section id="manifeste" style="padding-top:clamp(40px,6vw,72px)">
+  <section id="manifeste" class="dark">
+    <div class="grain"></div><div class="glow-soft" style="left:-15%;top:-30%;background:var(--night)"></div>
     <div class="wrap">
       <div class="pagehead"><span class="mono" data-i="man.k"></span><span class="mono">p. 02</span></div>
       <div class="manifest">
@@ -574,7 +582,8 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
     </div>
   </section>
 
-  <section class="exp" id="experience">
+  <section class="exp dark" id="experience">
+    <div class="grain"></div><div class="glow-soft" style="right:-20%;bottom:-35%;background:var(--dawn)"></div>
     <div class="wrap">
       <div class="pagehead"><span class="mono" data-i="exp.k"></span><span class="mono">p. 04</span></div>
       <div class="sec-head">
@@ -615,7 +624,8 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
     </div>
   </section>
 
-  <section id="histoire">
+  <section id="histoire" class="dark">
+    <div class="grain"></div><div class="glow-soft" style="right:-15%;top:-25%;background:var(--dusk)"></div>
     <div class="wrap">
       <div class="pagehead"><span class="mono" data-i="sto.k"></span><span class="mono">p. 06</span></div>
       <div class="story">
