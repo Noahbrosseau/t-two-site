@@ -366,6 +366,15 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink)}
 .nform input{border:0!important;background:transparent!important;padding:10px 14px!important}
 .nform .btn{padding:12px 20px}
 .nmsg{font-family:var(--f-serif);font-style:italic;font-size:16px;margin-top:10px}
+.nmsg:empty{display:none}
+.nconsent{font-size:13px;line-height:1.5;margin-top:10px;max-width:46ch;opacity:.85}
+.nconsent a,.pconsent a,.legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.pform{display:grid;gap:16px;margin-top:28px;padding:clamp(20px,3vw,32px);border-radius:var(--r);background:var(--card);border:1px solid var(--rule);min-width:0}
+.pform .lede{max-width:56ch}
+.pconsent{font-size:13px;color:var(--muted);max-width:60ch}
+.pform .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.pform .nmsg{margin-top:0}
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
 
 /* FAQ */
 .faq{display:grid;max-width:860px}
@@ -751,7 +760,22 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
         <div class="ptier"><span class="mono" data-i="par.t3k"></span><h3>Presenting Partner</h3><p data-i="par.t3"></p></div>
       </div>
       <div class="cats"><span class="chip" data-i="par.c1"></span><span class="chip" data-i="par.c2"></span><span class="chip" data-i="par.c3"></span><span class="chip" data-i="par.c4"></span><span class="chip" data-i="par.c5"></span></div>
-      <p style="margin-top:28px"><a class="btn btn-ink" href="#contact" data-i="par.cta"></a></p>
+      <form class="pform" id="pForm" name="partenaires" method="POST" action="/" data-netlify="true" netlify-honeypot="adresse" novalidate>
+        <input type="hidden" name="form-name" value="partenaires">
+        <input type="hidden" name="langue" class="fLang" value="fr">
+        <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="adresse" tabindex="-1" autocomplete="off"></label></p>
+        <h3 data-i="par.fH"></h3>
+        <p class="lede" data-i="par.fP"></p>
+        <div class="grid2">
+          <div class="field"><label for="pName" data-i="par.fName"></label><input type="text" id="pName" name="nom" autocomplete="name"></div>
+          <div class="field"><label for="pCo" data-i="par.fCo"></label><input type="text" id="pCo" name="entreprise" autocomplete="organization"></div>
+          <div class="field"><label for="pEmail" data-i="f.email"></label><input type="email" id="pEmail" name="courriel" autocomplete="email" data-ph="f.emailPh"></div>
+          <div class="field"><label for="pTier" data-i="par.fTier"></label><select id="pTier" name="niveau"><option value="A determiner" data-i="par.o4"></option><option value="Partner">Partner</option><option value="Official Partner">Official Partner</option><option value="Presenting Partner">Presenting Partner</option></select></div>
+        </div>
+        <div class="field"><label for="pMsg"><span data-i="par.fMsg"></span> <span class="opt" data-i="f.optional"></span></label><textarea id="pMsg" name="message"></textarea></div>
+        <p class="pconsent" data-i="par.fConsent"></p>
+        <div class="actions"><button class="btn btn-ink" type="submit" data-i="par.fBtn"></button><p class="nmsg" id="pOut" aria-live="polite"></p></div>
+      </form>
     </div>
   </section>
 
@@ -765,11 +789,15 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
           <p style="max-width:44ch" data-i="nl.p"></p>
         </div>
         <div>
-          <form class="nform" id="nForm" novalidate>
+          <form class="nform" id="nForm" name="infolettre" method="POST" action="/" data-netlify="true" netlify-honeypot="adresse" novalidate>
+            <input type="hidden" name="form-name" value="infolettre">
+            <input type="hidden" name="langue" class="fLang" value="fr">
+            <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="adresse" tabindex="-1" autocomplete="off"></label></p>
             <label for="nEmail" class="mono" style="position:absolute;left:-9999px" data-i="f.email"></label>
-            <input type="email" id="nEmail" data-ph="f.emailPh">
+            <input type="email" id="nEmail" name="courriel" autocomplete="email" data-ph="f.emailPh">
             <button class="btn btn-ink" type="submit" data-i="nl.btn"></button>
           </form>
+          <p class="nconsent" data-i="nl.consent"></p>
           <p class="nmsg" id="nMsg" aria-live="polite"></p>
         </div>
       </div>
@@ -798,7 +826,7 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
       <div><span class="mono" data-i="foot.follow"></span><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div>
       <div><span class="mono" data-i="foot.founded"></span>Noah Brosseau &amp; Luka Juneau</div>
     </div>
-    <div class="legal"><span data-i="foot.legal"></span><span data-i="foot.tag"></span></div>
+    <div class="legal"><span><span data-i="foot.legal"></span> · <a href="confidentialite.html" data-i="foot.privacy"></a></span><span data-i="foot.tag"></span></div>
   </div>
 </footer>
 
@@ -870,6 +898,14 @@ fr:{
  "par.cta":"Recevoir le dossier partenaire →",
  "nl.k":"Infolettre","nl.h":"Sois le premier dans la zone.","nl.p":"Ouverture des billets, prévente du Season Pass, invités des Sessions. Un courriel par mois, pas plus.","nl.btn":"Je m’inscris",
  "nl.ok":"C’est noté. Ton premier courriel arrive avec l’ouverture de la billetterie.","nl.bad":"Ce courriel semble incomplet. Vérifie le format, par exemple toi@exemple.com.",
+ "nl.consent":"En t’inscrivant, tu acceptes de recevoir l’infolettre de T-Two. Tu peux te désabonner en un clic, en tout temps. <a href=\"confidentialite.html\">Politique de confidentialité</a>",
+ "nl.sending":"Envoi en cours…","nl.err":"L’inscription n’a pas fonctionné. Réessaie dans un instant ou écris-nous à bonjour@t-two.ca.",
+ "par.fH":"Parlons partenariat.","par.fP":"Laisse-nous tes coordonnées et on t’envoie le dossier partenaire. On répond en moins de 3 jours ouvrables.",
+ "par.fName":"Ton nom","par.fCo":"Entreprise ou organisme","par.fTier":"Niveau qui t’intéresse","par.o4":"À déterminer","par.fMsg":"Message",
+ "par.fConsent":"Tes coordonnées servent seulement à te répondre au sujet d’un partenariat. <a href=\"confidentialite.html\">Politique de confidentialité</a>",
+ "par.fBtn":"Recevoir le dossier partenaire →","par.fOk":"Merci! On te revient avec le dossier partenaire d’ici 3 jours ouvrables.",
+ "par.fBad":"Ajoute ton nom, ton entreprise et un courriel valide.","par.fErr":"L’envoi n’a pas fonctionné. Réessaie dans un instant ou écris-nous à bonjour@t-two.ca.",
+ "foot.privacy":"Confidentialité",
  "faq.k":"Questions fréquentes","faq.h":"Avant de venir.",
  "foot.big":"La Zone <span class=\"serif\">de transition.</span>","foot.write":"Écris-nous","foot.based":"Basé à","foot.follow":"Suis-nous","foot.founded":"Fondé par","foot.legal":"© 2027 T-Two. Club de triathlon expérientiel","foot.tag":"Bouger ensemble, traverser les transitions ensemble.",
  "d.back":"← Toute la saison","d.prog":"Au programme","d.incl":"Inclus","d.bring":"À apporter","d.when":"Date","d.time":"Heure","d.where":"Lieu","d.cap":"Places","d.prices":"Billets","d.book":"Réserver ma place →","d.prev":"Événement précédent","d.next":"Événement suivant","d.seats":"places restantes","d.full":"Presque complet",
@@ -936,6 +972,14 @@ en:{
  "par.cta":"Get the partner deck →",
  "nl.k":"Newsletter","nl.h":"Be first in the zone.","nl.p":"Ticket releases, Season Pass presale, Sessions guests. One email a month, no more.","nl.btn":"Sign me up",
  "nl.ok":"You’re on the list. Your first email arrives when tickets go on sale.","nl.bad":"That email looks incomplete. Check the format, for example you@example.com.",
+ "nl.consent":"By signing up, you agree to receive the T-Two newsletter. You can unsubscribe in one click, any time. <a href=\"confidentialite.html#en\">Privacy policy</a>",
+ "nl.sending":"Sending…","nl.err":"The sign-up didn’t go through. Try again in a moment or email us at bonjour@t-two.ca.",
+ "par.fH":"Let’s talk partnership.","par.fP":"Leave your details and we’ll send you the partner deck. We reply within 3 business days.",
+ "par.fName":"Your name","par.fCo":"Company or organization","par.fTier":"Tier you’re interested in","par.o4":"Not sure yet","par.fMsg":"Message",
+ "par.fConsent":"Your details are only used to reply to you about a partnership. <a href=\"confidentialite.html#en\">Privacy policy</a>",
+ "par.fBtn":"Get the partner deck →","par.fOk":"Thank you! We’ll send you the partner deck within 3 business days.",
+ "par.fBad":"Add your name, your company and a valid email.","par.fErr":"The message didn’t go through. Try again in a moment or email us at bonjour@t-two.ca.",
+ "foot.privacy":"Privacy",
  "faq.k":"Frequently asked questions","faq.h":"Before you come.",
  "foot.big":"The Transition <span class=\"serif\">Zone.</span>","foot.write":"Write to us","foot.based":"Based in","foot.follow":"Follow us","foot.founded":"Founded by","foot.legal":"© 2027 T-Two. Experiential triathlon club","foot.tag":"Move together, go through transitions together.",
  "d.back":"← Full season","d.prog":"Schedule","d.incl":"Included","d.bring":"What to bring","d.when":"Date","d.time":"Time","d.where":"Where","d.cap":"Spots","d.prices":"Tickets","d.book":"Save my spot →","d.prev":"Previous event","d.next":"Next event","d.seats":"spots left","d.full":"Almost full",
@@ -1189,12 +1233,31 @@ if("IntersectionObserver" in window){
   new IntersectionObserver(es=>es.forEach(x=>{ const on=x.isIntersecting && !$("#home").hidden; mbar.classList.toggle("on",on); mbar.setAttribute("aria-hidden",!on); }),{threshold:.04}).observe($("#billets"));
 }
 
-/* infolettre */
+/* formulaires Netlify (infolettre, partenaires) */
+const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function netlifySubmit(form){
+  form.querySelectorAll(".fLang").forEach(i=>i.value=lang);
+  const body=new URLSearchParams(new FormData(form)).toString();
+  return fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body}).then(r=>{ if(!r.ok) throw new Error("HTTP "+r.status); });
+}
 $("#nForm").addEventListener("submit",ev=>{
   ev.preventDefault();
-  const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#nEmail").value.trim());
-  $("#nMsg").textContent = t(ok?"nl.ok":"nl.bad");
-  if(ok) $("#nEmail").value="";
+  const f=ev.currentTarget, out=$("#nMsg"), btn=f.querySelector("button");
+  if(!EMAIL_RE.test($("#nEmail").value.trim())){ out.textContent=t("nl.bad"); $("#nEmail").focus(); return; }
+  out.textContent=t("nl.sending"); btn.disabled=true;
+  netlifySubmit(f).then(()=>{ out.textContent=t("nl.ok"); f.reset(); })
+    .catch(()=>{ out.textContent=t("nl.err"); })
+    .finally(()=>{ btn.disabled=false; });
+});
+$("#pForm").addEventListener("submit",ev=>{
+  ev.preventDefault();
+  const f=ev.currentTarget, out=$("#pOut"), btn=f.querySelector("button[type=submit]");
+  if(!$("#pName").value.trim()||!$("#pCo").value.trim()||!EMAIL_RE.test($("#pEmail").value.trim())){
+    out.textContent=t("par.fBad"); (!$("#pName").value.trim()?$("#pName"):!$("#pCo").value.trim()?$("#pCo"):$("#pEmail")).focus(); return; }
+  out.textContent=t("nl.sending"); btn.disabled=true;
+  netlifySubmit(f).then(()=>{ out.textContent=t("par.fOk"); f.reset(); })
+    .catch(()=>{ out.textContent=t("par.fErr"); })
+    .finally(()=>{ btn.disabled=false; });
 });
 
 /* ================= Pages d'événement ================= */

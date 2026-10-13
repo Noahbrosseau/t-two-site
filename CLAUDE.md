@@ -22,6 +22,8 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
   - `run.jpg`, `swim.jpg` : section « L'expérience ».
   - `swim2.jpg` (Backyard), `lake.jpg` (Escape) : dossards et pages d'événement.
   - `luna.jpg` : partenaire Luna (gardée en couleur, c'est le produit).
+- `confidentialite.html` : politique de confidentialité (Loi 25), FR et EN sur la même page (`#en` ouvre l'anglais). **Brouillon à faire valider** avant le lancement. Responsable : Noah Brosseau.
+- `netlify.toml` : publication + en-têtes de sécurité (CSP, HSTS, X-Frame-Options…). Si tu ajoutes une ressource externe (script, police, image, iframe), mets la CSP à jour, sinon le navigateur la bloque.
 
 ### Où modifier quoi dans `index.html`
 
@@ -32,6 +34,8 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - **Chrono du Launch** : constante `LAUNCH`.
 - **Licence d'un jour Triathlon Québec** : constante `DAY_LIC` (13 $).
 - **Couleurs et polices** : variables CSS dans `:root`, en haut du fichier.
+- **Formulaires** : `#nForm` (infolettre, nom Netlify `infolettre`) et `#pForm` (partenaires, nom Netlify `partenaires`). Ce sont des Netlify Forms : HTML statique avec `data-netlify="true"`, champ caché `form-name`, piège à robots `adresse`, envoi en `fetch` vers `/`. Ne jamais les générer en JavaScript (Netlify ne les détecterait plus). Les envois arrivent dans Netlify → projet t-two → Forms.
+- Le formulaire de **billetterie** ne doit **pas** envoyer ses données à Netlify : les données sensibles (date de naissance, contact d'urgence, décharge) iront à la plateforme de billetterie.
 
 ## Identité visuelle (décidée — ne pas changer sans demander)
 
@@ -73,6 +77,8 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - [ ] Prix, dates et lieux finaux
 - [ ] Nom de domaine + courriel T-Two
 - [ ] Billetterie Lepointdevente reliée aux boutons « Réserver »
-- [ ] Infolettre et formulaire partenaires (Netlify Forms)
-- [ ] Politique de confidentialité (Loi 25) et décharge validée
+- [x] Infolettre et formulaire partenaires (Netlify Forms) — vérifier que la détection des formulaires est activée dans Netlify
+- [x] Brouillon de politique de confidentialité (`confidentialite.html`)
+- [ ] Faire valider la politique de confidentialité et la décharge
+- [ ] Créer le courriel `bonjour@t-two.ca` (utilisé dans la politique et les messages d'erreur)
 - [ ] Retirer le `noindex`, puis « Make public » dans Netlify
