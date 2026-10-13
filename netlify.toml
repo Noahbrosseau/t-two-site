@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  # Ne pas republier si seuls les fichiers de notes ont changé (économise des crédits)
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)CLAUDE.md' ':(exclude)README.md'"
 
 # En-têtes de sécurité pour toutes les pages
 [[headers]]

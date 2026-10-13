@@ -10,8 +10,10 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Netlify (compte de Luka, équipe « T-Two. », projet `t-two`) publie **automatiquement** chaque commit sur `main`, en environ 1 minute.
 - Site : https://t-two.netlify.app · Déploiements : https://app.netlify.com/projects/t-two/deploys
 - Aucun build : HTML statique. `netlify.toml` publie la racine (`.`).
-- **Toujours** terminer chaque réponse à Noah par le lien du site en direct (https://t-two.netlify.app), même sans changement publié.
-- Regroupe les petits changements en un seul commit quand c'est possible (chaque déploiement consomme des crédits Netlify).
+- **Toujours** terminer chaque réponse à Noah par un lien : l'aperçu (https://apercu--t-two.netlify.app) ou le site (https://t-two.netlify.app).
+- **Crédits Netlify (plan gratuit, 300 crédits/mois)** : chaque publication sur `main` coûte **15 crédits** ; les publications de branche sont **gratuites**.
+- **Méthode de travail** : toutes les modifications vont d'abord sur la branche **`apercu`** (aperçu gratuit : https://apercu--t-two.netlify.app). On publie sur `main` (le vrai site) **seulement quand Noah ou Luka dit « publie »**, en fusionnant `apercu` dans `main` : une seule publication pour plusieurs changements.
+- Après chaque changement, donne le lien de l'**aperçu** ; après une publication sur `main`, donne le lien du site.
 - Messages de commit en français, courts et clairs.
 
 ## Structure
