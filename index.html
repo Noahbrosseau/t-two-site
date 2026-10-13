@@ -224,6 +224,8 @@ section{padding-block:clamp(80px,11vw,140px);position:relative}
 .loop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--f-mono);font-size:12px}
 .loop b{font-weight:500;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
 .loop i{font-style:normal;color:var(--coral)}
+.ev .loop b{background:var(--paper-2);border-color:var(--rule);color:var(--ink)}
+.ev .flag{align-self:flex-start;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--flare);color:#17181A;padding:4px 10px;border-radius:999px}
 
 /* expérience */
 .exp{background:var(--paper-2)}
@@ -1124,7 +1126,7 @@ function renderTimeline(){
 /* cartes dossard */
 function renderCards(){
   $("#events").innerHTML = SHOWN.map(e=>
-    '<a class="ev'+(e.feature?" feature":"")+'" href="#'+e.id+'">'+bibHTML(e)+
+    '<a class="ev" href="#'+e.id+'">'+bibHTML(e)+
     '<div class="body">'+(e.feature?'<span class="flag">'+t("e.flag")+'</span>':'')+
     '<h3>'+e.name+'</h3><p class="desc">'+L(e.desc)+'</p>'+
     (e.feature?'<div class="loop"><b>500 m</b><i>→</i><b>15 km</b><i>→</i><b>3 km</b><i>↺</i></div>':'')+

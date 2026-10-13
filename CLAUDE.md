@@ -10,7 +10,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Netlify (compte de Luka, équipe « T-Two. », projet `t-two`) publie **automatiquement** chaque commit sur `main`, en environ 1 minute.
 - Site : https://t-two.netlify.app · Déploiements : https://app.netlify.com/projects/t-two/deploys
 - Aucun build : HTML statique. `netlify.toml` publie la racine (`.`).
-- Après chaque changement publié, donne le lien du site en direct.
+- **Toujours** terminer chaque réponse à Noah par le lien du site en direct (https://t-two.netlify.app), même sans changement publié.
 - Regroupe les petits changements en un seul commit quand c'est possible (chaque déploiement consomme des crédits Netlify).
 - Messages de commit en français, courts et clairs.
 
@@ -46,7 +46,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Polices : Archivo (titres et texte), Newsreader italique (accents éditoriaux), IBM Plex Mono (étiquettes).
 - Photos : traitement **noir et blanc cinématique** (contraste un peu relevé, grain léger, vignette). Exemple ffmpeg :
   `hue=s=0,eq=contrast=1.15:brightness=-0.02:gamma=0.96,noise=alls=6:allf=u`
-- Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Le Backyard est la carte vedette (« Défi signature »).
+- Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Les 6 cartes ont **toutes la même taille** (2 rangées de 3 sur ordinateur) ; le Backyard garde seulement l'étiquette jaune « Défi signature ».
 - Le logo actuel est **provisoire** (cercle à trois arcs). À remplacer par le logo vectoriel de Luka.
 
 ## Contenu et décisions
