@@ -44,7 +44,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - **Rythme crème / charcoal** (oct. 2026, équilibre entre Noah qui aime le crème et Luka qui aime le sombre) : le **sens** en charcoal (`class="dark"` : Éditorial, L'expérience, Notre histoire, pied de page), le **concret** en crème (couverture, Saison, Season Pass avec billet charcoal, Billetterie, Partenaires, FAQ). La classe `.dark` redéfinit les jetons de couleur localement : utilise toujours les variables, jamais de couleur codée en dur. Charcoal = `--charcoal` (#26282C), ni noir ni gris.
 - Le **jaune** (`--flare`) seulement en petit éclat, au bon endroit. Le **corail** (`--coral`) pour les actions principales.
 - Couleurs fixes : **pas de mode sombre**.
-- Polices : Archivo (titres et texte), Newsreader italique (accents éditoriaux), IBM Plex Mono (étiquettes).
+- **Typographie limitée à 3 styles** (décision de Noah, oct. 2026, pour un site épuré) : **Titre** (Archivo extra-gras), **Texte** (Archivo normal), **Étiquette** (IBM Plex Mono, petites majuscules). Pas d'italique, pas de texte en dégradé, pas de lettrine, pas de souligné (sauf liens dans les petits textes légaux). Ne pas réintroduire de 4e style.
 - Photos : traitement **noir et blanc cinématique** (contraste un peu relevé, grain léger, vignette). Exemple ffmpeg :
   `hue=s=0,eq=contrast=1.15:brightness=-0.02:gamma=0.96,noise=alls=6:allf=u`
 - Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Les 6 cartes ont **toutes la même taille** (2 rangées de 3 sur ordinateur) ; le Backyard garde seulement l'étiquette jaune « Défi signature ».
@@ -53,7 +53,9 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 ## Contenu et décisions
 
 - Site **bilingue** FR/EN (bouton en haut). Traduction anglaise soignée, pas littérale.
-- Barre du haut : liens, FR/EN, bouton Billets, menu ☰ plein écran (sections, 6 événements, 3 actions).
+- **Accueil volontairement court** (pour ne pas submerger) : couverture → Saison (6 dossards) → Season Pass → bandeau « À propos » → infolettre → pied de page.
+- **Pages séparées** (ouvertes par le menu ou un bouton, gérées par `route()` et `VIEWS` dans le script) : `#a-propos` (Éditorial, L'expérience, Notre histoire), `#billets` (billetterie), `#partenaires`, `#faq`, et une page par événement (`#launch`, `#backyard`…). Les ancres `#saison`, `#pass`, `#infolettre` défilent dans l'accueil.
+- Barre du haut : Saison 2027, Season Pass, À propos, Partenaires, FAQ, FR/EN, bouton Billets, menu ☰ plein écran.
 - Trois actions principales : acheter un billet, prendre le Season Pass, suivre sur Instagram.
 - Saison 2027 : Launch Party, Café Ride, Sessions, Escape (Îles-de-la-Madeleine), Backyard (Lac-Stukely, Mont-Orford), Closing. **Prix et dates provisoires**, ajustés au dernier moment.
 - Le Season Pass donne accès aux **6 événements**.

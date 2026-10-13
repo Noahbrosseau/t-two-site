@@ -10,14 +10,14 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='17' fill='none' stroke='%2326282C' stroke-width='3'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23FF5B38'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   color-scheme:light;
   --paper:#F5F2EC;--card:#FBF9F5;--ink:#26282C;--muted:#6B6861;--rule:#D9D3C8;--coral:#FF5B38;
   --f-display:"Archivo","Helvetica Neue","Arial Black",system-ui,sans-serif;
   --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-serif:var(--f-body);
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
@@ -29,16 +29,16 @@ a{color:inherit;text-underline-offset:2px}
 .wrap{max-width:760px;margin-inline:auto;padding-inline:clamp(16px,4.5vw,48px)}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;max-width:1200px}
-.brand{text-decoration:none;font-family:var(--f-display);font-stretch:110%;font-weight:900;font-size:21px;letter-spacing:-.04em}
+.brand{text-decoration:none;font-family:var(--f-display);font-stretch:110%;font-weight:800;font-size:21px;letter-spacing:-.04em}
 .brand b{color:var(--coral)}
 .lang{display:flex;border:1px solid var(--rule);border-radius:999px;padding:3px}
 .lang button{border:0;background:transparent;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;padding:5px 10px;border-radius:999px;cursor:pointer;color:var(--muted)}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 main{padding-block:clamp(40px,7vw,80px) clamp(64px,9vw,110px)}
 .mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-h1{font-family:var(--f-display);font-stretch:108%;font-weight:900;font-size:clamp(40px,7vw,72px);line-height:.95;letter-spacing:-.045em;margin:14px 0 18px;text-wrap:balance}
-h1 em{font-family:var(--f-serif);font-weight:300;letter-spacing:-.02em}
-.dek{font-family:var(--f-serif);font-style:italic;font-size:clamp(19px,2vw,23px);line-height:1.4;color:var(--muted);margin:0 0 36px;max-width:40ch}
+h1{font-family:var(--f-display);font-stretch:108%;font-weight:800;font-size:clamp(40px,7vw,72px);line-height:.95;letter-spacing:-.045em;margin:14px 0 18px;text-wrap:balance}
+h1 em{font-style:normal}
+.dek{font-family:var(--f-body);font-size:clamp(18px,1.7vw,21px);line-height:1.4;color:var(--muted);margin:0 0 36px;max-width:40ch}
 h2{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.02em;line-height:1.2;margin:44px 0 12px;padding-top:20px;border-top:1px solid var(--rule)}
 p,li{color:#3B3D41}
 ul{padding-left:20px}
