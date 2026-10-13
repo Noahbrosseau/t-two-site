@@ -14,6 +14,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - **Crédits Netlify (plan gratuit, 300 crédits/mois)** : chaque publication sur `main` coûte **15 crédits** ; les publications de branche sont **gratuites**.
 - **Méthode de travail** : toutes les modifications vont d'abord sur la branche **`apercu`** (aperçu gratuit : https://apercu--t-two.netlify.app). On publie sur `main` (le vrai site) **seulement quand Noah ou Luka dit « publie »**, en fusionnant `apercu` dans `main` : une seule publication pour plusieurs changements.
 - Après chaque changement, donne le lien de l'**aperçu** ; après une publication sur `main`, donne le lien du site.
+- **Rappel de publication** (demande de Noah) : ne pas laisser les changements dormir dans l'aperçu. Quand environ **5 changements ou plus** s'accumulent sur `apercu` sans publication, ou après **quelques jours**, rappelle à Noah que c'est le temps de publier, en tenant compte des crédits restants (environ 300/mois, 15 par publication ; garder une marge d'au moins 2 publications pour les urgences). S'il dit oui, fusionne `apercu` dans `main`.
 - Messages de commit en français, courts et clairs.
 
 ## Structure
