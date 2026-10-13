@@ -116,7 +116,11 @@ p{margin:0}
 .folio{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding-bottom:12px;border-bottom:2px solid var(--ink);color:var(--muted)}
 .masthead{font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:clamp(84px,21vw,300px);letter-spacing:-.065em;line-height:.8;margin:clamp(14px,2vw,24px) 0 0 -.04em;color:var(--ink)}
 .masthead b{color:var(--coral)}
-.cover-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(24px,3vw,40px);align-items:start}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:clamp(28px,4vw,56px);align-items:center}
+.cover .lines{gap:clamp(20px,2.4vw,28px)}
+.cover-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.cover .photo{aspect-ratio:4/5}
+@media (max-width:600px){.folio span:not(:first-child){display:none}}
 @media (max-width:900px){.cover-grid{grid-template-columns:1fr}}
 .figure{display:grid;gap:10px;margin:0}
 .photo{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:4px;overflow:hidden;background:var(--dusk);isolation:isolate}
@@ -519,11 +523,18 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
 
 <!-- ===== Vue principale ===== -->
 <main id="home">
-  <section class="cover" id="top" style="padding-top:clamp(20px,3vw,32px)">
+  <section class="cover" id="top">
     <div class="wrap">
       <div class="folio mono"><span data-i="cover.issue"></span><span data-i="cover.club"></span><span data-i="cover.where"></span></div>
-      <div class="masthead" aria-hidden="true">T-Two<b>.</b></div>
       <div class="cover-grid">
+        <div class="lines">
+          <h1 data-i="cover.h1"></h1>
+          <p class="dek" data-i="cover.dek"></p>
+          <div class="cover-cta">
+            <a class="btn btn-coral" href="#billets" data-i="cta.ticket"></a>
+            <a class="btn btn-line" href="#saison" data-i="cover.see"></a>
+          </div>
+        </div>
         <figure class="figure">
           <div class="photo">
             <!-- Vidéo ou photo du hero : ajouter <source> ou remplacer par <img> quand le contenu sera prêt -->
@@ -533,24 +544,6 @@ footer .wrap{position:relative;z-index:1;display:grid;gap:40px}
             <div class="stamp"><span>Nage → T1 → Course</span><span>Estrie · 2026</span></div>
           </div>
         </figure>
-        <div class="lines">
-                    <h1 data-i="cover.h1"></h1>
-          <p class="dek" data-i="cover.dek"></p>
-          <ul class="coverlines">
-            <li><a class="primary" href="#billets"><span class="n">A</span><span class="t" data-i="cover.l1"></span><span class="go">→</span></a></li>
-            <li><a href="#pass"><span class="n">B</span><span class="t" data-i="cover.l2"></span><span class="go">→</span></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="n">C</span><span class="t" data-i="cover.l3"></span><span class="go">↗</span></a></li>
-          </ul>
-          <div class="clock" id="clock" aria-live="off">
-            <div class="head mono"><span class="live" data-i="clock.label"></span><span data-i="clock.date"></span></div>
-            <div class="digits">
-              <div class="u"><b id="dD">000</b><span data-i="clock.d"></span></div><i>:</i>
-              <div class="u"><b id="dH">00</b><span data-i="clock.h"></span></div><i>:</i>
-              <div class="u"><b id="dM">00</b><span data-i="clock.m"></span></div><i>:</i>
-              <div class="u"><b id="dS">00</b><span data-i="clock.s"></span></div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -887,7 +880,7 @@ fr:{
  "cover.caption":"Sortir de l’eau, se relever, repartir en courant. Tournage d’automne 2026.",
  "cover.kicker":"Le magazine de la saison",
  "cover.h1":"La Zone de transition.",
- "cover.dek":"Six rendez-vous pour s’entraîner, apprendre et se connecter. Peu importe ton niveau, peu importe ce que tu traverses.",
+ "cover.dek":"Six rendez-vous pour s’entraîner, apprendre et se connecter. Peu importe ton niveau.","cover.see":"Voir la saison",
  "cover.l1":"Réserver un billet<small>Launch, Café Ride, Sessions, Escape, Backyard, Closing</small>",
  "cover.l2":"Prendre le Season Pass<small>Toute la saison, un seul achat</small>",
  "cover.l3":"Suivre l’aventure<small>Les coulisses sur Instagram</small>",
@@ -961,7 +954,7 @@ en:{
  "cover.caption":"Out of the water, back on your feet, off running. Shot in fall 2026.",
  "cover.kicker":"The season magazine",
  "cover.h1":"The Transition Zone.",
- "cover.dek":"Six gatherings to train, learn and connect. Whatever your level, whatever you’re going through.",
+ "cover.dek":"Six gatherings to train, learn and connect. Whatever your level.","cover.see":"See the season",
  "cover.l1":"Book a ticket<small>Launch, Café Ride, Sessions, Escape, Backyard, Closing</small>",
  "cover.l2":"Get the Season Pass<small>The whole season, one purchase</small>",
  "cover.l3":"Follow the journey<small>Behind the scenes on Instagram</small>",
@@ -1374,12 +1367,13 @@ document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",(
 /* ================= Chrono ================= */
 const LAUNCH = new Date(2027,5,5,16,0,0);
 function tick(){
+  if(!$("#dD")) return;
   let s = Math.max(0, Math.floor((LAUNCH-new Date())/1000));
   const d=Math.floor(s/86400); s%=86400; const h=Math.floor(s/3600); s%=3600; const m=Math.floor(s/60); s%=60;
   $("#dD").textContent=String(d).padStart(3,"0"); $("#dH").textContent=String(h).padStart(2,"0");
   $("#dM").textContent=String(m).padStart(2,"0"); $("#dS").textContent=String(s).padStart(2,"0");
 }
-tick(); setInterval(tick,1000);
+tick(); if($("#dD")) setInterval(tick,1000);
 
 /* copier */
 document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{

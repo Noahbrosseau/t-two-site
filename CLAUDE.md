@@ -30,7 +30,6 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - **Événements** (dates, prix, lieux, horaires, places vendues) : tableau `EVENTS`. Chaque événement nourrit à la fois la ligne du temps, les dossards, le menu, sa page d'événement (`#launch`, `#backyard`…) et la billetterie.
 - **Season Pass** : l'entrée `id:"pass"` dans `EVENTS`.
 - **FAQ** : tableau `FAQ`.
-- **Chrono du Launch** : constante `LAUNCH`.
 - **Licence d'un jour Triathlon Québec** : constante `DAY_LIC` (13 $).
 - **Couleurs et polices** : variables CSS dans `:root`, en haut du fichier.
 - **Formulaires** : `#nForm` (infolettre, nom Netlify `infolettre`) et `#pForm` (partenaires, nom Netlify `partenaires`). Ce sont des Netlify Forms : HTML statique avec `data-netlify="true"`, champ caché `form-name`, piège à robots `adresse`, envoi en `fetch` vers `/`. Ne jamais les générer en JavaScript (Netlify ne les détecterait plus). Les envois arrivent dans Netlify → projet t-two → Forms.
@@ -53,7 +52,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 ## Contenu et décisions
 
 - Site **bilingue** FR/EN (bouton en haut). Traduction anglaise soignée, pas littérale.
-- **Accueil volontairement court** (pour ne pas submerger) : couverture → Saison (6 dossards) → Season Pass → bandeau « À propos » → infolettre → pied de page.
+- **Accueil volontairement court** (pour ne pas submerger) : couverture (titre, une phrase, 2 boutons, vidéo — **pas de chrono, pas de liste d'actions**, retirés pour alléger) → Saison (6 dossards) → Season Pass → bandeau « À propos » → infolettre → pied de page.
 - **Pages séparées** (ouvertes par le menu ou un bouton, gérées par `route()` et `VIEWS` dans le script) : `#a-propos` (Éditorial, L'expérience, Notre histoire), `#billets` (billetterie), `#partenaires`, `#faq`, et une page par événement (`#launch`, `#backyard`…). Les ancres `#saison`, `#pass`, `#infolettre` défilent dans l'accueil.
 - Barre du haut : Saison 2027, Season Pass, À propos, Partenaires, FAQ, FR/EN, bouton Billets, menu ☰ plein écran.
 - Trois actions principales : acheter un billet, prendre le Season Pass, suivre sur Instagram.
