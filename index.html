@@ -199,6 +199,7 @@ section{padding-block:clamp(80px,11vw,140px);position:relative}
 .bib .day{font-family:var(--f-display);font-stretch:112%;font-weight:900;font-size:clamp(64px,7vw,92px);line-height:.8;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
 .bib .mon{font-family:var(--f-display);font-weight:800;font-size:20px;line-height:1;padding-bottom:4px}
 .bib .mon small{display:block;font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:14px;margin-top:6px;opacity:.92}
+.bib .day.tba{font-size:clamp(48px,5.4vw,70px);letter-spacing:-.05em}
 .ev .body{display:flex;flex-direction:column;gap:12px;padding:20px 22px 22px;flex:1}
 .ev .desc{color:var(--muted);font-size:15.5px}
 .ev .meta{display:grid;gap:4px;font-size:14px;color:var(--muted)}
@@ -1034,7 +1035,7 @@ const EVENTS = [
   incl:{fr:["Une consommation et des bouchées","Tirage de prix des partenaires"],en:["One drink and bites","Partner prize draw"]},
   bring:{fr:["Tes questions pour les invités"],en:["Your questions for the guests"]},
   tiers:[{id:"eb",l:{fr:"Early bird",en:"Early bird"},p:29},{id:"reg",l:{fr:"Régulier",en:"Regular"},p:39}]},
- {id:"escape", n:"04", kind:"Escape", g:G.dawn, img:"media/lake.jpg", pos:61, tba:true, iso:"2027-08-14", day:"—", mon:{fr:"Août",en:"Aug."}, wd:{fr:"Date à venir",en:"Date to come"},
+ {id:"escape", n:"04", kind:"Escape", g:G.dawn, pos:61, tba:true, iso:"2027-08-14", day:"—", mon:{fr:"Août",en:"Aug."}, wd:{fr:"Date à venir",en:"Date to come"},
   name:"T-Two Escape", date:{fr:"Août 2027 · date à confirmer",en:"August 2027 · date to be confirmed"}, time:{fr:"Une journée",en:"One day"},
   place:{fr:"Îles-de-la-Madeleine",en:"Magdalen Islands"}, cap:50, sold:9, license:true, shirt:true, food:true,
   dek:{fr:"Un mini-triathlon au bout du monde, puis le soleil qui se couche sur la mer.",en:"A mini triathlon at the edge of the world, then sunset over the sea."},
@@ -1043,7 +1044,7 @@ const EVENTS = [
   incl:{fr:["Sauveteurs et embarcations de sécurité","Bouffe et drinks du soir","T-shirt de l’événement"],en:["Lifeguards and safety boats","Evening food and drinks","Event t-shirt"]},
   bring:{fr:["Combinaison isothermique recommandée","Vélo et casque","Ton hébergement aux Îles"],en:["Wetsuit recommended","Bike and helmet","Your own lodging on the Islands"]},
   tiers:[{id:"reg",l:{fr:"Billet tout inclus",en:"All-inclusive ticket"},p:59}]},
- {id:"backyard", n:"05", kind:"Race", g:G.dusk, img:"media/swim2.jpg", pos:72.7, feature:true, iso:"2027-08-28", day:"28", mon:{fr:"Août",en:"Aug."}, wd:{fr:"Samedi",en:"Saturday"},
+ {id:"backyard", n:"05", kind:"Race", g:G.dusk, pos:72.7, feature:true, iso:"2027-08-28", day:"28", mon:{fr:"Août",en:"Aug."}, wd:{fr:"Samedi",en:"Saturday"},
   name:"T-Two Backyard", date:{fr:"Samedi 28 août 2027",en:"Saturday, August 28, 2027"}, time:{fr:"Du lever au coucher du soleil",en:"Sunrise to sunset"},
   place:{fr:"Parc national du Mont-Orford, secteur Lac-Stukely",en:"Mont-Orford National Park, Lac-Stukely sector"}, cap:80, sold:57, license:true, shirt:true,
   dek:{fr:"Une boucle, encore une, et encore une. Une boucle complétée, un point.",en:"One loop, then another, and another. One completed loop, one point."},
@@ -1090,7 +1091,8 @@ function bibHTML(e, big){
     '<div class="grain"></div><div class="holes"><i></i><i></i><i></i><i></i></div>'+
     '<div class="brow"><span>'+e.n+' / 06</span><span>'+e.kind+'</span></div>'+
     (big ? '<h1>'+esc(e.name.replace("T-Two ",""))+'</h1>' :
-    '<div class="date"><span class="day">'+e.day+'</span><span class="mon">'+L(e.mon)+'<small>'+L(e.wd)+'</small></span></div>')+'</div>';
+    (e.tba ? '<div class="date"><span class="day tba">'+L(e.mon)+'</span><span class="mon"><small>'+L(e.wd)+'</small></span></div>'
+           : '<div class="date"><span class="day">'+e.day+'</span><span class="mon">'+L(e.mon)+'<small>'+L(e.wd)+'</small></span></div>'))+'</div>';
 }
 
 /* ================= Rendu statique ================= */

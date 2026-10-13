@@ -20,7 +20,6 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - `media/` : vidéo et photos. **Temporaires** (prises au cellulaire), à remplacer par les versions pro.
   - `hero.mp4` (+ `hero-poster.jpg`) : vidéo de couverture, noir et blanc, 12 s en boucle.
   - `run.jpg`, `swim.jpg` : section « L'expérience ».
-  - `swim2.jpg` (Backyard), `lake.jpg` (Escape) : dossards et pages d'événement.
   - `luna.jpg` : partenaire Luna (gardée en couleur, c'est le produit).
 - `confidentialite.html` : politique de confidentialité (Loi 25), FR et EN sur la même page (`#en` ouvre l'anglais). **Brouillon à faire valider** avant le lancement. Responsable : Noah Brosseau.
 - `netlify.toml` : publication + en-têtes de sécurité (CSP, HSTS, X-Frame-Options…). Si tu ajoutes une ressource externe (script, police, image, iframe), mets la CSP à jour, sinon le navigateur la bloque.
@@ -47,7 +46,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Polices : Archivo (titres et texte), Newsreader italique (accents éditoriaux), IBM Plex Mono (étiquettes).
 - Photos : traitement **noir et blanc cinématique** (contraste un peu relevé, grain léger, vignette). Exemple ffmpeg :
   `hue=s=0,eq=contrast=1.15:brightness=-0.02:gamma=0.96,noise=alls=6:allf=u`
-- Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle. Le Backyard est la carte vedette (« Défi signature »).
+- Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Le Backyard est la carte vedette (« Défi signature »).
 - Le logo actuel est **provisoire** (cercle à trois arcs). À remplacer par le logo vectoriel de Luka.
 
 ## Contenu et décisions
