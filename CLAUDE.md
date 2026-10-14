@@ -30,7 +30,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 ### Où modifier quoi dans `index.html`
 
 - **Textes** : objet `I` dans le script, avec `I.fr` et `I.en`. Toute modification de texte se fait **dans les deux langues**.
-- **Événements** (dates, prix, lieux, horaires, places vendues) : tableau `EVENTS`. Chaque événement nourrit à la fois la ligne du temps, les dossards, le menu, sa page d'événement (`#launch`, `#backyard`…) et la billetterie.
+- **Événements** (dates, prix, lieux, horaires, places vendues) : tableau `EVENTS`. Chaque événement nourrit à la fois les dossards, le menu, sa page d'événement (`#starting-line`, `#backyardman`…) et la billetterie. Tant qu'une date n'est pas connue : `tba:true` (affiche « Date à venir » et le numéro en gros sur le dossard). Quand la date arrive : retirer `tba`, remplir `day`, `mon`, `wd`, `date`, `iso`.
 - **Season Pass** : l'entrée `id:"pass"` dans `EVENTS`.
 - **FAQ** : tableau `FAQ`.
 - **Licence d'un jour Triathlon Québec** : constante `DAY_LIC` (13 $).
@@ -49,18 +49,18 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - **Typographie limitée à 3 styles** (décision de Noah, oct. 2026, pour un site épuré) : **Titre** (Archivo extra-gras), **Texte** (Archivo normal), **Étiquette** (IBM Plex Mono, petites majuscules). Pas d'italique, pas de texte en dégradé, pas de lettrine, pas de souligné (sauf liens dans les petits textes légaux). Ne pas réintroduire de 4e style.
 - Photos : traitement **noir et blanc cinématique** (contraste un peu relevé, grain léger, vignette). Exemple ffmpeg :
   `hue=s=0,eq=contrast=1.15:brightness=-0.02:gamma=0.96,noise=alls=6:allf=u`
-- Dossards de course : chaque événement a sa date en très gros et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Les 6 cartes ont **toutes la même taille** (2 rangées de 3 sur ordinateur) ; le Backyard garde seulement l'étiquette jaune « Défi signature ».
+- Dossards de course : chaque événement a sa date en très gros (ou son numéro tant que la date est à venir) et 4 trous d'épingle, sur un **dégradé de couleur, sans photo** (décision de Noah, oct. 2026). Les 7 cartes ont **toutes la même taille** (3 colonnes sur ordinateur) ; la 7e est suivie d'une tuile charcoal « Vision commune » sur 2 colonnes. Le Backyardman garde seulement l'étiquette jaune « Défi signature ».
 - Le logo actuel est **provisoire** (cercle à trois arcs). À remplacer par le logo vectoriel de Luka.
 
 ## Contenu et décisions
 
 - Site **bilingue** FR/EN (bouton en haut). Traduction anglaise soignée, pas littérale.
-- **Accueil volontairement court** (pour ne pas submerger) : couverture (titre, une phrase, 2 boutons, vidéo — **pas de chrono, pas de liste d'actions**, retirés pour alléger) → Saison (6 dossards) → Season Pass → bandeau « À propos » → infolettre → pied de page.
-- **Pages séparées** (ouvertes par le menu ou un bouton, gérées par `route()` et `VIEWS` dans le script) : `#a-propos` (Éditorial, L'expérience, Notre histoire), `#billets` (billetterie), `#partenaires`, `#faq`, et une page par événement (`#launch`, `#backyard`…). Les ancres `#saison`, `#pass`, `#infolettre` défilent dans l'accueil.
+- **Accueil volontairement court** (pour ne pas submerger) : couverture (titre, une phrase, 2 boutons, vidéo — **pas de chrono, pas de liste d'actions**, retirés pour alléger) → Calendrier des événements (7 dossards + Vision commune) → Season Pass → bandeau « À propos » → infolettre → pied de page.
+- **Pages séparées** (ouvertes par le menu ou un bouton, gérées par `route()` et `VIEWS` dans le script) : `#a-propos` (Éditorial, L'expérience, Notre histoire), `#billets` (billetterie), `#partenaires`, `#faq`, et une page par événement (`#starting-line`, `#backyardman`…). Les ancres `#saison`, `#pass`, `#infolettre` défilent dans l'accueil.
 - Barre du haut : Saison 2027, Season Pass, À propos, Partenaires, FAQ, FR/EN, bouton Billets, menu ☰ plein écran.
 - Trois actions principales : acheter un billet, prendre le Season Pass, suivre sur Instagram.
-- Saison 2027 : Launch Party, Café Ride, Sessions, Escape (Îles-de-la-Madeleine), Backyard (Lac-Stukely, Mont-Orford), Closing. **Prix et dates provisoires**, ajustés au dernier moment.
-- Le Season Pass donne accès aux **6 événements**.
+- Saison 2027 (noms, ordre et descriptions **fournis par Noah, oct. 2026 — à garder mot pour mot**) : 01 Starting Line (lancement de saison), 02 Cadence 01 (café + DJ), 03 Transition Talks (conférence et atelier), 04 Cadence 02 (café + DJ), 05 Au large (destination, Îles-de-la-Madeleine), 06 Backyardman (mini-triathlon, Lac-Stukely), 07 The Cool Down (clôture, apéro + DJ). **Dates à venir** ; prix, horaires et lieux provisoires.
+- Le Season Pass donne accès aux **7 événements**.
 - **Luna** est Official Partner (niveau 2).
 - Billetterie en 4 étapes : événement → billet (relais : noms des coéquipiers) → infos (contact d'urgence, date de naissance 18+, licence Triathlon Québec, t-shirt et allergies si pertinent) → décharge signée en ligne.
 - Billetterie réelle visée : **Lepointdevente** (frais refilés à l'acheteur). Pour l'instant le formulaire ne prend pas de paiement.
