@@ -8,6 +8,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 
 - Dépôt GitHub : `Noahbrosseau/t-two-site`, branche `main`.
 - Netlify (compte de Luka, équipe « T-Two. », projet `t-two`) publie **automatiquement** chaque commit sur `main`, en environ 1 minute.
+- Domaine **t-two.ca acheté (27 oct. 2026)**, à brancher sur Netlify (Domain management) ; une fois actif, le site sera https://t-two.ca.
 - Site : https://t-two.netlify.app · Déploiements : https://app.netlify.com/projects/t-two/deploys
 - Aucun build : HTML statique. `netlify.toml` publie la racine (`.`).
 - **Toujours** terminer chaque réponse à Noah par un lien : l'aperçu (https://apercu--t-two.netlify.app) ou le site (https://t-two.netlify.app).
@@ -65,7 +66,7 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 - Billetterie en 4 étapes : événement → billet (relais : noms des coéquipiers) → infos (contact d'urgence, date de naissance 18+, licence Triathlon Québec, t-shirt et allergies si pertinent) → décharge signée en ligne.
 - Billetterie réelle visée : **Lepointdevente** (frais refilés à l'acheteur). Pour l'instant le formulaire ne prend pas de paiement.
 - Le nombre de places restantes affiché est **un exemple** (`sold` dans `EVENTS`).
-- Courriel affiché `bonjour@t-two.ca` : **à créer**. Pas encore de nom de domaine ni de @ Instagram final (les liens Instagram pointent vers instagram.com).
+- Courriel affiché `bonjour@t-two.ca` : **à créer** (domaine t-two.ca acheté). Pas encore de @ Instagram final (les liens Instagram pointent vers instagram.com).
 
 ## Règles
 
@@ -79,7 +80,8 @@ Les deux peuvent demander des modifications à Claude. Ce fichier résume les d�
 
 - [ ] Logo vectoriel, photos des fondateurs, photos et vidéos pro
 - [ ] Prix, dates et lieux finaux
-- [ ] Nom de domaine + courriel T-Two
+- [x] Nom de domaine t-two.ca acheté
+- [ ] Brancher t-two.ca dans Netlify (DNS + HTTPS)
 - [ ] Billetterie Lepointdevente reliée aux boutons « Réserver »
 - [x] Infolettre et formulaire partenaires (Netlify Forms) — vérifier que la détection des formulaires est activée dans Netlify
 - [x] Brouillon de politique de confidentialité (`confidentialite.html`)
